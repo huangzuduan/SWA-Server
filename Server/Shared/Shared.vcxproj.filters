@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{2905b8be-f2b0-4dce-af8c-7ca092786267}</UniqueIdentifier>
+      <Extensions>.h</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{32e3a5c3-77e5-41a9-8a8a-68ab6e63b1a8}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\BaseSingle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonError.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbDataBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbField.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbRecordSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DbServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Logger.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\LogManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\MathBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\MemoryPool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\MsgDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\MsgType.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\NetClient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\NetConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\NetIOBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\NetServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\NetSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Probability.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\BaseDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonUtility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonC2S.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\CommonS2C.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Encrypt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="common\DbDataBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\DbField.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\DbRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\DbRecordSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\DbServer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\LogManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\MemoryPool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\NetClient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\NetIOBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\NetServer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\NetSocket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Probability.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Encrypt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
