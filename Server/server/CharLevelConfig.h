@@ -6,13 +6,13 @@
 using namespace SWA;
 using namespace DB;
 
-class CharLevelConfig : public BaseSingle<CharLevelConfig> , public ConfigBase<suint16 ,CharacterLevelCfg >
+class CharLevelConfig : public BaseSingle<CharLevelConfig> , public ConfigBase<uint16 ,CharacterLevelCfg >
 {
 public:
 	CharLevelConfig(void){};
 	~CharLevelConfig(void){};
 
-	virtual  svoid	LoadRes( const sbyte* path )
+	virtual  void	LoadRes( const sbyte* path )
 	{
 		ptree pt;
 		ptree root;
@@ -28,17 +28,17 @@ public:
 		{
 			ptree n = iter->second;
 			CharacterLevelCfg item;
-			item.level					= n.get< suint32 >(XMLATTR(level));
-			item.exp					= n.get< suint32 >(XMLATTR(exp));
-			item.power					= n.get< suint32 >(XMLATTR(power));
-			item.talent					= n.get< suint32>(XMLATTR(talent));
+			item.level					= n.get< uint32 >(XMLATTR(level));
+			item.exp					= n.get< uint32 >(XMLATTR(exp));
+			item.power					= n.get< uint32 >(XMLATTR(power));
+			item.talent					= n.get< uint32>(XMLATTR(talent));
 			items.insert(std::make_pair(item.level,item));
 		}
 
 		FLOG4( "xml loaded. %s" , path );
 	}
 
-	virtual const CharacterLevelCfg*  GetData( suint16 level )
+	virtual const CharacterLevelCfg*  GetData( uint16 level )
 	{
 	    ItemMapType::iterator it = items.find(level);
 		if (it == items.end())

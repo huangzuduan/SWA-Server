@@ -22,21 +22,18 @@ NetClient::~NetClient(void)
 }
 
 
-void	NetClient::Start()
+void NetClient::Start()
 {
-
 	thread t(boost::bind(&NetClient::HandleStart,this));
 	this_thread::yield();
 	t.swap(m_cServiceThread);
-
 }
 
-void					NetClient::HandleStart()
+void NetClient::HandleStart()
 {
 	// Use thread group can add code to connect more servers 
 	// here can SetConnect more socket connect
 	SetConnect(m_pGameSocket);
-
 	thread_group tg;
 	for (uint8 i =  0 ; i < MAX_THREAD; ++i)
 	{
@@ -48,20 +45,20 @@ void					NetClient::HandleStart()
 
 }
 
-void	NetClient::SetAddress( const char* ip , uint16 port )
+void NetClient::SetAddress( const char* ip , uint16 port )
 {
 	boost::system::error_code ec;
 	m_cServerAddr = tcp::endpoint( address::from_string( ip , ec ) , port );
 	assert(!ec);
 }
 
-void					NetClient::SetConnect(NetSocket& rSocket)
+void NetClient::SetConnect(NetSocket& rSocket)
 {
 	rSocket.async_connect(m_cServerAddr,boost::bind(&NetClient::HandleConnect,this,boost::asio::placeholders::error,&rSocket));
 }
 
 
-void	NetClient::HandleConnect(const boost::system::error_code& error,NetSocket* pSocket)
+void NetClient::HandleConnect(const boost::system::error_code& error,NetSocket* pSocket)
 {
 	if(error)
 	{ 
@@ -75,7 +72,7 @@ void	NetClient::HandleConnect(const boost::system::error_code& error,NetSocket* 
 }
 
 
-void	NetClient::SetHandler( PNetServerHandler enter ,  PNetClientMsgHandler msg , PNetServerHandler exit )
+void NetClient::SetHandler( PNetServerHandler enter ,  PNetClientMsgHandler msg , PNetServerHandler exit )
 {
 	m_pOnMsgConnected		= enter;
 	m_pOnMsgRecevied		= msg;
@@ -83,7 +80,7 @@ void	NetClient::SetHandler( PNetServerHandler enter ,  PNetClientMsgHandler msg 
 }
 
 
-void					NetClient::Run()
+void NetClient::Run()
 {
 	while (true)
 	{
@@ -98,7 +95,7 @@ void					NetClient::Run()
 	}
 }
 
-void	NetClient::Update()
+void NetClient::Update()
 {
 	NetMsgHead* head = NULL;
 	EMsgRead eReadStatus = m_pGameSocket.ReadMsg(&head);
@@ -121,7 +118,6 @@ void	NetClient::Update()
 	case MSG_READ_REVCING:
 		break;
 	}
-
 }
 
 

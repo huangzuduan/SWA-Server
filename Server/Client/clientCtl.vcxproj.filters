@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="ClientCommand.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="NetMsgHandler.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientPlayer.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientNetHandler.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_PCH.h">
+      <Filter>def</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClientCommand.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientCtl.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="NetMsgHandler.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientPlayer.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientNetHandler.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_PCH.cpp">
+      <Filter>def</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="client">
+      <UniqueIdentifier>{17095bc4-4d43-478f-8fb3-fe0580528c15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{aab7d890-7bed-4c6e-85c0-1c53580fc4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="def">
+      <UniqueIdentifier>{ebbf8f26-5078-4b15-a22a-6ee4879160c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

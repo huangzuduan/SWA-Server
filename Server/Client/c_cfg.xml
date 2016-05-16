@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<!-- fep -->
+	<remote id="1001" host="127.0.0.1" port="9001" type="1"></remote>
+</items>

@@ -19,10 +19,10 @@ public:
 
 	~ControlBase(){}
 
-	virtual svoid UpdateAll(suint32 now_time) = 0;
+	virtual void UpdateAll(uint32 now_time) = 0;
 
 	// 释放times中的内存对象，内存分配交给子控制器
-	virtual svoid Release() = 0;
+	virtual void Release() = 0;
 
 	virtual sbool Remove(IK k)
 	{

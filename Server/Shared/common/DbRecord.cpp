@@ -1,7 +1,5 @@
 #include "DbRecord.h"
-
-using namespace SWA;
-
+#include "DbRecordSet.h"
 
 DbRecord::DbRecord( DbRecordSet& rRecordSet , uint32 nFieldNum ): 
 m_rRecordSet( rRecordSet ),m_nBuffBegin(0)
@@ -188,7 +186,7 @@ void DbRecord::BuildSQLCondition( char* pszConditionSQL )
 	sprintf( pszConditionSQL ,"%s=%ld" , this->KeyName() , (int32)this->Key() );
 }
 
-ulong DbRecord::GetFieldCount()
+uint32 DbRecord::GetFieldCount()
 {
 	return	m_vecFields.size();
 }

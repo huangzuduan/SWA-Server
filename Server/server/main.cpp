@@ -81,7 +81,7 @@ void Init()
 	InitNetMsg();
 
 	// 加载配置
-	g_rGameCfg.LoadRes( "../conf/gameconfig.xml" );
+	g_rGameCfg.LoadRes( "server_cfg.xml" );
 
 	// 服务器相关配置
 	const GameConfigInfo& rGameCfgInfo = g_rGameCfg.GetGameConfigInfo();

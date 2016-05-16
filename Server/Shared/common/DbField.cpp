@@ -2,8 +2,6 @@
 #include "DbField.h"
 #include "DbRecord.h"
 
-using namespace SWA;
-
 DbField::DbField(const DbFieldInfo rInfo, DbRecord& rDbRecord) : m_Info(rInfo), m_bChanged(false), m_rDbRecord(rDbRecord)
 {
 }		

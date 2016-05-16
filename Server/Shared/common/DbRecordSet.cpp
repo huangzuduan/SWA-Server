@@ -2,7 +2,6 @@
 #include "DbRecordSet.h"
 #include "DbRecord.h"
 
-using namespace SWA;
 
 const uint32 INVALID_KEY = UINT_MAX;
 
