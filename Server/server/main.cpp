@@ -6,21 +6,19 @@
 #include "GameDB.h"
 #include "MsgDefine.h"
 #include "Player.h"
-#include "DbServer.h"
 #include "GlobalVar.h"
 #include "ResourceMgr.h"
 #include "GameConfig.h"
+#include "DBConnection.h"
 
 /*
-*
-*	Detail: 程序主入口
-*   
-*  Created by hzd 2014-11-28
-*
-*/
+ *  Created by hzd 2014-11-28
+ *
+ */
 
-NetServer*		gNetServer;
-GameCommand		gGameCommand;
+NetServer*			gNetServer;
+GameCommand			gGameCommand;
+db::DBConnection*   gDbConn = NULL;	// 
 
 bool gIsRun		= true;
 bool gIsExit	= true;
@@ -35,13 +33,10 @@ void ServerStart();
 
 int main(int argc, const char * argv[])
 {
-	// 初始化服务器所都要准备好的数据 
 	Init();
 
-	// 启动服务 
 	ServerStart();
 
-	// 执行退出的相关操作
 	RunServerExit();
 
 	return 0;
@@ -53,7 +48,6 @@ void RunServerExit()
 	uint32 nSize = 0;
 	while( gIsExit)
 	{
-		nSize = gDbServer->GetDataDb()->GetRequestSize();
 		FLOG4( "db request %d." , nSize );
 		if ( !nSize )
 			gIsExit = false;
@@ -63,70 +57,62 @@ void RunServerExit()
 
 bool DBServerInit(const GameConfigInfo& rGameCfgInfo)
 {
-	if(IDataBase* pDb = g_rDbDatabaseMgr.AddDatabase(rGameCfgInfo.arrDbdateHost,rGameCfgInfo.arrDbDataUsername,rGameCfgInfo.arrDbDataPassword,rGameCfgInfo.arrDbDataDbname))
+	if (gDbConn == NULL)
 	{
-		gDbServer->InitDataDb(pDb);
-		FLOG4( "DBServer Init.............Ok" );
-		return true;
-	}else{
-		FLOG4( "DBServer data faile." );
-		return false;
+		gDbConn = new db::DBConnection();
+		std::string host(rGameCfgInfo.arrDbdateHost);
+		std::string username(rGameCfgInfo.arrDbDataUsername);
+		std::string password(rGameCfgInfo.arrDbDataPassword);
+		std::string dbname(rGameCfgInfo.arrDbDataDbname);		
+		if (!gDbConn->connect(host, username, password, dbname, 3306))
+		{
+			return false;
+		}
+
+		// 初始化其它数据库的数据 
 	}
+
+	return true;
 }
 
 void Init()
 {
-
-	// 初始化化协议
 	InitNetMsg();
 
-	// 加载配置
 	g_rGameCfg.LoadRes( "server_cfg.xml" );
 
-	// 服务器相关配置
 	const GameConfigInfo& rGameCfgInfo = g_rGameCfg.GetGameConfigInfo();
 
-	// 加载服务器需要的资源
 	g_rResourceMgr.LoadAllRes(rGameCfgInfo.arrConfigPath);
 
-	// 初始化数据库
 	if(DBServerInit(rGameCfgInfo))
 	{
-		// 初始化Scoket服务
+	
 		gNetServer = NetServerMgr::Instance()->AddNetServer();
 		gNetServer->SetAddress( rGameCfgInfo.arrServerHost , rGameCfgInfo.nServerPort);
 		gNetServer->SetHandler( OnNetMsgEnter , OnNetMsg , OnNetMsgExit );
-
-		// 初始化待连接玩家数据
+	
 		g_rPlayerMgr.Init(*gNetServer);
 
-		// 启动Socket服务
 		gNetServer->Start();
 
 		FLOG4( "SERVER STARTED." );
 
-		// 辅助命令初始化
 		gGameCommand.Init();
 	}
 }
 
 /*
- *
- *	Detail: 游戏主循环
- *   
  *  Created by hzd 2015/01/26  
  *
  */
 void GameUpdate( uint32 nDelay )
 {
-	gDbServer->Update(nDelay);
 	gNetServer->Update(nDelay);
 	g_rPlayerMgr.Update(nDelay);
 }
 
 /*
- *
- *	Detail: Socket启动（IO开始接收）
  *   
  *  Created by hzd 2015/01/26  
  *
@@ -152,7 +138,7 @@ void ServerStart()
 		nLastTime = nNowTime;
 		if( nRunStatus > 2000000 )
 		{ 
-			FLOG4("Main thread is running...");	// 标识主线程还在做事中
+			FLOG4("Main thread is running...");
 			nRunStatus = 0;
 		}
 	}

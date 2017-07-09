@@ -4,9 +4,10 @@ file(GLOB_RECURSE sources_CommonDef_CC Common/*.cc)
 file(GLOB_RECURSE sources_CommonDef_CPP Common/*.cpp)
 
 include_directories(
-  ${MYSQL_INCLUDE_DIR}
-  ${BOOST_INCLUDE_DIR}
-  ${CMAKE_SOURCE_DIR}/Shared/Common
+	${MYSQL_INCLUDE_DIR}
+	${BOOST_INCLUDE_DIR}
+	${CMAKE_SOURCE_DIR}/Shared/Common
+	${PROTOBUL_INCLUDE_DIR}
 )
 
 set(Shared_SRCS

@@ -6,7 +6,7 @@
 
 /*
  *
- *	Detail: Socket类
+ *	Detail: Socket��
  *   
  *  Created by hzd 2014-1-1
  *
@@ -36,7 +36,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 获得SocketID，从0开始自增
+		 *	Detail: ���SocketID����0��ʼ����
 		 *   
 		 *  Created by hzd 2015/01/21  
 		 *
@@ -48,7 +48,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 压入要准备发送的数据
+		 *	Detail: ѹ��Ҫ׼�����͵�����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -57,7 +57,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 发送数据
+		 *	Detail: ��������
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -66,7 +66,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 读取缓存中的数据
+		 *	Detail: ��ȡ�����е�����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -75,7 +75,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 移除缓存中的数据
+		 *	Detail: �Ƴ������е�����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -84,7 +84,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 断开socket
+		 *	Detail: �Ͽ�socket
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -93,7 +93,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 恢复到构造函数那种状态
+		 *	Detail: �ָ������캯������״̬
 		 *   
 		 *  Created by hzd 2015-1-20
 		 *
@@ -102,7 +102,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 启动Socket，可以进入收发数据
+		 *	Detail: ���Socket�����Խ����շ�����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -111,7 +111,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 获得Socket客户端IP地址
+		 *	Detail: ���Socket�ͻ���IP��ַ
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -122,7 +122,7 @@ namespace SWA
 		
 		/*
 		 *
-		 *	Detail: 关闭socket
+		 *	Detail: �ر�socket
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -131,7 +131,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 收到指定长度数据回调函数
+		 *	Detail: �յ�ָ���������ݻص�����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -140,7 +140,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 发送数据回调函数，发送后发现有新数据，则会选择断续发送（一般不会发生这种情况）
+		 *	Detail: �������ݻص����������ͺ����������ݣ����ѡ��������ͣ�һ�㲻�ᷢ�����������
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -149,7 +149,7 @@ namespace SWA
 		
 		/*
 		 *
-		 *	Detail: 读消息头
+		 *	Detail: ����Ϣͷ
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -158,7 +158,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 读消息主体
+		 *	Detail: ����Ϣ����
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -167,7 +167,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: 超时回调函数，将会关闭socket
+		 *	Detail: ��ʱ�ص�����������ر�socket
 		 *   
 		 *  Created by hzd 2015-1-21
 		 *
@@ -176,16 +176,16 @@ namespace SWA
 
 	private:
 
-		int32				m_nID;				// socketID，从0开始 
+		int32				m_nID;				// socketID����0��ʼ 
 
-		deadline_timer		m_cTimer;			// 定时器，用于检测用户多久没有与服务器通信，否则会角色HandleWait函数 
+		deadline_timer		m_cTimer;			// ��ʱ�������ڼ���û����û���������ͨ�ţ�������ɫHandleWait���� 
 
-		NetIOBuffer			m_cIBuffer;			// 管理收到的字节管理器 
-		NetIOBuffer			m_cOBuffer;			// 管理发出的字节管理器 
+		NetIOBuffer			m_cIBuffer;			// �����յ����ֽڹ����� 
+		NetIOBuffer			m_cOBuffer;			// ����������ֽڹ����� 
 
-		mutable_buffers_1	m_cHeadBuffer;		// 收到头数据缓存绑定类 
-		mutable_buffers_1	m_cBodyBuffer;      // 收到的主体数据绑在绑定类 
-		mutable_buffers_1	m_cSendBuffer1;     // 发送的数据缓存绑定类 
+		mutable_buffers_1	m_cHeadBuffer;		// �յ�ͷ���ݻ������ 
+		mutable_buffers_1	m_cBodyBuffer;      // �յ����������ݰ��ڰ��� 
+		mutable_buffers_1	m_cSendBuffer1;     // ���͵����ݻ������ 
 
 		ERecvType			m_eRecvStage;		
 		uint16				m_nBodyLen;			

@@ -46,6 +46,8 @@ struct C2SLogin : public NetMsgHead
 	C2SLogin() : NetMsgHead(PRO_C2S_LOGIN_ACCOUNT)
 	{
 		nSize = sizeof(*this);
+		memset(arrUsername, 0, sizeof(arrUsername));
+		memset(arrPassword, 0, sizeof(arrPassword));
 	}
 	char arrUsername[MAX_ACCOUNT_LENG];
 	char arrPassword[MAX_PASSWORD_LENG];

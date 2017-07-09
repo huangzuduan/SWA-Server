@@ -169,7 +169,7 @@ int32 DataBase::OnThreadProcess()
 				return 0;			
 			}
 
-			mysql_next_result(m_pDbc); // å¦‚æœæŸ¥è¯¢çš„æ˜¯å¤šç»“æœé›†ï¼Œå¿…éœ€è¦è°ƒç”¨è¯¥æ¥å£æ‰å¯ä»¥è·å–ä¸‹ä¸€æ¡æ•°æ®(ç¬¬ä¸€æ¡),åœ¨æ•°æ®è¿æ¥æ—¶å°±è®¾ç½®ä¸ºå¤šç»“æœé›† 
+			mysql_next_result(m_pDbc); // Èç¹û²éÑ¯µÄÊÇ¶à½á¹û¼¯£¬±ØĞèÒªµ÷ÓÃ¸Ã½Ó¿Ú²Å¿ÉÒÔ»ñÈ¡ÏÂÒ»ÌõÊı¾İ(µÚÒ»Ìõ),ÔÚÊı¾İÁ¬½ÓÊ±¾ÍÉèÖÃÎª¶à½á¹û¼¯ 
 			m_cDBMutex.unlock();
 
 			DbRecordSet* pRecordSet = new DbRecordSet( *this , E_DB_MODE_EDIT );
@@ -239,7 +239,7 @@ MYSQL_RES* DataBase::ExecuteRsyncSQL( const char* pszSQL )
 		return NULL;
 	}
 	m_cDBMutex.unlock();
-	return pRes; //mysql_free_result(pRes); åœ¨ä½¿ç”¨å®ŒæˆpResåï¼Œè°ƒç”¨é‡Šæ”¾
+	return pRes; //mysql_free_result(pRes); ÔÚÊ¹ÓÃÍê³ÉpResºó£¬µ÷ÓÃÊÍ·Å
 }
 
 bool DataBase::ExecuteAsyncSQL( const char* pszSQL , void * pData , SQLResultCallBack callback )
@@ -330,7 +330,7 @@ DbResult* DataBase::GetAsyncResult()
 	return NULL;
 }
 
-// åŠ å…¥æ•°æ®åº“æŸ¥è¯¢é˜Ÿåˆ—ï¼Œä½†ä¸è¿›è¡Œæ•°æ®åº“æŸ¥è¯¢æ“ä½œ 
+// ¼ÓÈëÊı¾İ¿â²éÑ¯¶ÓÁĞ£¬µ«²»½øĞĞÊı¾İ¿â²éÑ¯²Ù×÷ 
 bool DataBase::ExecuteAsyncPlayer(void* pData, PlayerCallBack callback)
 {
 	DbRequest* pRequest = new DbRequest;

@@ -1,4 +1,4 @@
-﻿#ifndef _GAMEMSGDEFINE_H_
+#ifndef _GAMEMSGDEFINE_H_
 #define _GAMEMSGDEFINE_H_
 
   

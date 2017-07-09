@@ -8,6 +8,10 @@
 
 #include "GlobalVar.h"
 #include "GameDB.h"
+#include "../LibProtocol/msg.pb.h"
+#include "MysqlProtobufHelper.h"
+
+extern db::DBConnection* gDbConn;
 
 void NetRequestClose( Player& rPlayer , NetMsgHead* pHead )
 {
@@ -41,12 +45,42 @@ void NetLoginAccountHandler( Player& rPlayer , NetMsgHead* pHead )
 	if (EPLAYER_STATUS_ENCRYPTED == rPlayer.GetStatus())
 	{
 		const C2SLogin& rPacket = *static_cast<const C2SLogin*>(pHead);
-		if(IDataBase* pDB = g_rDbDatabaseMgr.GetMainDB())
+		std::stringstream dataSql;
+		dataSql << "SELECT * FROM `account` WHERE  `username`='" << rPacket.arrUsername;
+		dataSql << "' AND `password`='" << rPacket.arrPassword << "';";
+		::msg::AccountInfo proto;
+		int ret = doQueryProto(*gDbConn, dataSql.str(), proto);
+		if (ret == 0)
 		{
-			SPRINTF(SQL_BUFFER,"SELECT `id`,`username` FROM `swa_data`.`account` WHERE  `username`='%s' AND `password`='%s';", rPacket.arrUsername,rPacket.arrPassword);
-			SQL_BUFFER[ MAX_SQL_BUFFER - 1 ] = '\0';
-			pDB->ExecuteAsyncSQL(SQL_BUFFER,&rPlayer,DBLoginRepAccount);
+			if (proto.id() > 0)
+			{
+				FLOG4("Login successful %s", proto.username().c_str());
+			}
 		}
+
+		//doQueryProto	单条查询
+		//doInsertProto 单条添加
+		//doReplaceProto	单条更新
+		//doQueryRepeatedProto 多条查询
+
+		//int ret = doInsertProto(*gDbConn, dataSql.str(), proto);
+		//if (ret == 0)
+		//{
+		//	// 添加成功
+		//}
+
+		//int ret = doReplaceProto(*gDbConn, dataSql.str(), proto);
+		//if (ret == 0)
+		//{
+		//	// 更新成功成功
+		//}
+
+		//::msg::AccountQuery protoMulti;
+		//int ret = doQueryRepeatedProto(*gDbConn, dataSql.str(), *protoMulti.mutable_account_list());
+		//if (ret == 0)
+		//{
+		//	// 多条查询
+		//}
 	}
 
 }

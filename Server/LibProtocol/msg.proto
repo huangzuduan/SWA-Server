@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package msg;
+
+// 帐号数据
+message AccountInfo
+{
+	optional uint32 id = 1;
+	optional string username = 2;
+	optional string password = 3;
+	optional uint32 create_time = 4;
+}
+
+// 多条查询
+message AccountQuery
+{
+	optional AccountInfo account_list = 1;
+}
+
+

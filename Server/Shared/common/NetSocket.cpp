@@ -161,7 +161,7 @@ namespace SWA
 		{
 			return;
 		}
-		Close(); // 会调用ReadMsg ec = 1
+		Close(); //
 	}
 
 	void NetSocket::ReadHead()

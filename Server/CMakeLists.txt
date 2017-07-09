@@ -50,7 +50,7 @@ endif()
 # Find Lib path:
 
 #
-#  ÂéüËØ•È°πÁõÆ‰∏∫win32ÔºåÁé∞Âú®Â∞Üboost,mysqlÁºñËØë‰∏∫64‰ΩçÔºåÂÖ∂‰ªñÁöÑÂºïÁî®ÊöÇÊó∂Êó†Á©∫ÁºñËØë64ÔºåÊúâÁ©∫ÂÜçÂºÑ
+#  ‘≠∏√œÓƒøŒ™win32£¨œ÷‘⁄Ω´boost,mysql±‡“ÎŒ™64Œª£¨∆‰À˚µƒ“˝”√‘› ±Œﬁø’±‡“Î64£¨”–ø’‘Ÿ≈™
 #
 #
 
@@ -76,7 +76,7 @@ IF(WIN32)
           NAMES
             mysql/mysql.h
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/include/windows
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/include
         )
         MARK_AS_ADVANCED(MYSQL_INCLUDE_DIR)
 		
@@ -92,7 +92,7 @@ IF(WIN32)
           NAMES
             libmysql
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib/win32
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib
 		  NO_DEFAULT_PATH
         )
 
@@ -100,17 +100,33 @@ IF(WIN32)
           NAMES
             mysqlclient_debug
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib/win32
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib
         )
 
         FIND_LIBRARY(LIB_MYSQL_RELEASE
           NAMES
             mysqlclient_release
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib/win32
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib
         )
 
         MARK_AS_ADVANCED(LIB_MYSQL_COMMON LIB_MYSQL_DEBUG LIB_MYSQL_RELEASE)
+		
+		FIND_PATH(PROTOBUL_INCLUDE_DIR
+          NAMES
+            google/protobuf/any.h
+          PATHS
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/protobuf/include
+        )
+		MARK_AS_ADVANCED(PROTOBUL_INCLUDE_DIR)
+		
+		FIND_LIBRARY(LIB_PROTOBUF_DEBUG
+          NAMES
+            libprotobufd
+          PATHS
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/protobuf/lib
+        )
+		MARK_AS_ADVANCED(LIB_PROTOBUF_DEBUG)
 
         FIND_PATH(BOOST_INCLUDE_DIR
           NAMES
@@ -119,12 +135,28 @@ IF(WIN32)
             ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/include
         )
         MARK_AS_ADVANCED(BOOST_INCLUDE_DIR)
+		
+		FIND_PATH(PROTOBUL_INCLUDE_DIR
+          NAMES
+            google/protobuf/any.h
+          PATHS
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/protobuf/include
+        )
+		MARK_AS_ADVANCED(PROTOBUL_INCLUDE_DIR)
+		
+		FIND_LIBRARY(LIB_PROTOBUF_DEBUG
+          NAMES
+            libprotobufd
+          PATHS
+            ${HMX_Server_Cmake_SOURCE_DIR}/dependence/protobuf/lib
+        )
+		MARK_AS_ADVANCED(LIB_PROTOBUF_DEBUG)
 
         FIND_LIBRARY(LIB_BOOST_SYSTEM_DEBUG
           NAMES
             libboost_system-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
 		  NO_DEFAULT_PATH
         )
 		
@@ -132,136 +164,134 @@ IF(WIN32)
           NAMES
             libboost_system-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_DATA_TIME_DEBUG
           NAMES
             libboost_date_time-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_THREAD_DEBUG
           NAMES
             libboost_thread-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_FILESYSTEM_DEBUG
           NAMES
             libboost_filesystem-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_PROGRAM_OPTIONS_DEBUG
           NAMES
             libboost_program_options-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_CHRONO_DEBUG
           NAMES
             libboost_chrono-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_REGEX_DEBUG
           NAMES
             libboost_regex-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_LOG_DEBUG
           NAMES
             libboost_log-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_LOG_SETUP_DEBUG
           NAMES
             libboost_log_setup-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_ATOMIC_DEBUG
           NAMES
             libboost_atomic-VC140-mt-gd-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_DATA_TIME_RELEASE
           NAMES
             libboost_date_time-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_THREAD_RELEASE
           NAMES
             libboost_thread-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_FILESYSTEM_RELEASE
           NAMES
             libboost_filesystem-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_PROGRAM_OPTIONS_RELEASE
           NAMES
             libboost_program_options-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_CHRONO_RELEASE
           NAMES
             libboost_chrono-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 
         FIND_LIBRARY(LIB_BOOST_REGEX_RELEASE
           NAMES
             libboost_regex-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_LOG_RELEASE
           NAMES
             libboost_log-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_LOG_SETUP_RELEASE
           NAMES
             libboost_log_setup-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
 		
 		FIND_LIBRARY(LIB_BOOST_ATOMIC_RELEASE
           NAMES
             libboost_atomic-VC140-mt-1_60
           PATHS
-            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/win64
+            ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib
         )
-		
-		
 
         MARK_AS_ADVANCED(   LIB_BOOST_SYSTEM_DEBUG
                             LIB_BOOST_SYSTEM_RELEASE
@@ -333,188 +363,6 @@ IF(WIN32)
     ENDIF(MSVC)
 ENDIF(WIN32)
 
-IF(UNIX)
-    # /MD and /MDd are the standard values - if someone wants to use
-    # others, the libnames have to change here too
-    # use also ssl and ssleay32 in debug as fallback for openssl < 0.9.8b
-    # TODO: handle /MT and static lib
-    # In Visual C++ naming convention each of these four kinds of Windows libraries has it's standard suffix:
-    #   * MD for dynamic-release
-    #   * MDd for dynamic-debug
-    #   * MT for static-release
-    #   * MTd for static-debug
-
-    # Implementation details:
-    # We are using the libraries located in the VC subdir instead of the parent directory eventhough :
-    # libeay32MD.lib is identical to ../libeay32.lib, and
-    # ssleay32MD.lib is identical to ../ssleay32.lib
-
-    FIND_PATH(MYSQL_INCLUDE_DIR
-      NAMES
-        mysql/mysql.h
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/include/linux
-    )
-    MARK_AS_ADVANCED(MYSQL_INCLUDE_DIR)
-
-    FIND_LIBRARY(LIB_MYSQL_DEBUG
-      NAMES
-        mysqlclient_debug
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_MYSQL_RELEASE
-      NAMES
-        mysqlclient_release
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/mysql/lib/deb64
-    )
-
-    MARK_AS_ADVANCED(LIB_MYSQL_DEBUG LIB_MYSQL_RELEASE)
-
-    SET(BOOST_INCLUDE_DIR
-      #NAMES
-      #  boost/unordered_map.hpp
-      #PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/include
-    )
-    MARK_AS_ADVANCED(BOOST_INCLUDE_DIR)
-
-    FIND_LIBRARY(LIB_BOOST_SYSTEM_DEBUG
-      NAMES
-        libboost_system-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_DATA_TIME_DEBUG
-      NAMES
-        libboost_date_time-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_THREAD_DEBUG
-      NAMES
-        libboost_thread-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_FILESYSTEM_DEBUG
-      NAMES
-        libboost_filesystem-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_PROGRAM_OPTIONS_DEBUG
-      NAMES
-        libboost_program_options-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_REGEX_DEBUG
-      NAMES
-        libboost_regex-gcc46-mt-sd-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_SYSTEM_RELEASE
-      NAMES
-        libboost_system-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_DATA_TIME_RELEASE
-      NAMES
-        libboost_date_time-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_THREAD_RELEASE
-      NAMES
-        libboost_thread-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_FILESYSTEM_RELEASE
-      NAMES
-        libboost_filesystem-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_PROGRAM_OPTIONS_RELEASE
-      NAMES
-        libboost_program_options-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    FIND_LIBRARY(LIB_BOOST_REGEX_RELEASE
-      NAMES
-        libboost_regex-gcc46-mt-s-1_60
-      PATHS
-        ${SWA_Server_Cmake_SOURCE_DIR}/dependence/boost/lib/deb64
-    )
-
-    MARK_AS_ADVANCED(   LIB_BOOST_SYSTEM_DEBUG
-                        LIB_BOOST_SYSTEM_RELEASE
-                        LIB_BOOST_DATA_TIME_DEBUG
-                        LIB_BOOST_DATA_TIME_RELEASE
-                        LIB_BOOST_THREAD_DEBUG
-                        LIB_BOOST_THREAD_RELEASE
-                        LIB_BOOST_FILESYSTEM_DEBUG
-                        LIB_BOOST_FILESYSTEM_RELEASE
-                        LIB_BOOST_PROGRAM_OPTIONS_DEBUG
-                        LIB_BOOST_PROGRAM_OPTIONS_RELEASE
-                        LIB_BOOST_REGEX_DEBUG
-                        LIB_BOOST_REGEX_RELEASE)
-
-    IF( CMAKE_BUILD_TYPE )
-      SET( MYSQL_LIBRARIES
-        debug ${LIB_MYSQL_DEBUG}
-        optimized ${LIB_MYSQL_RELEASE}
-      )
-      SET( BOOST_LIBRARIES
-        debug ${LIB_BOOST_SYSTEM_DEBUG}
-        debug ${LIB_BOOST_DATA_TIME_DEBUG}
-        debug ${LIB_BOOST_THREAD_DEBUG}
-        debug ${LIB_BOOST_FILESYSTEM_DEBUG}
-        debug ${LIB_BOOST_PROGRAM_OPTIONS_DEBUG}
-        debug ${LIB_BOOST_CHRONO_DEBUG}
-        debug ${LIB_BOOST_REGEX_DEBUG}
-        optimized ${LIB_BOOST_SYSTEM_RELEASE}
-        optimized ${LIB_BOOST_DATA_TIME_RELEASE}
-        optimized ${LIB_BOOST_THREAD_RELEASE}
-        optimized ${LIB_BOOST_FILESYSTEM_RELEASE}
-        optimized ${LIB_BOOST_PROGRAM_OPTIONS_RELEASE}
-        optimized ${LIB_BOOST_CHRONO_RELEASE}
-        optimized ${LIB_BOOST_REGEX_RELEASE}
-      )
-    ELSE()
-      SET( MYSQL_LIBRARIES
-        ${LIB_MYSQL_RELEASE}
-      )
-      SET( BOOST_LIBRARIES
-        ${LIB_BOOST_SYSTEM_RELEASE}
-        ${LIB_BOOST_DATA_TIME_RELEASE}
-        ${LIB_BOOST_THREAD_RELEASE}
-        ${LIB_BOOST_FILESYSTEM_RELEASE}
-        ${LIB_BOOST_PROGRAM_OPTIONS_RELEASE}
-        ${LIB_BOOST_CHRONO_RELEASE}
-        ${LIB_BOOST_REGEX_RELEASE}
-      )
-    ENDIF()
-
-ENDIF(UNIX)
 
 # Recurse into the "Hello" and "Demo" subdirectories. This does not actually
 # cause another cmake executable to run. The same process will walk through
@@ -522,5 +370,6 @@ ENDIF(UNIX)
 add_subdirectory (Client)
 add_subdirectory (Server)
 add_subdirectory (Shared)
+add_subdirectory (LibProtocol)
 
 

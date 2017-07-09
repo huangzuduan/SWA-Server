@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by fox on 12-11-20.
-//  Copyright (c) 2012å¹´ __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012Äê __MyCompanyName__. All rights reserved.
 //
 
 #include "NetServer.h"

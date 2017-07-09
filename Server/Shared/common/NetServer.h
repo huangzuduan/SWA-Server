@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by fox on 12-11-20.
-//  Copyright (c) 2012å¹´ __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012Äê __MyCompanyName__. All rights reserved.
 //
 
 #ifndef Net_SERVER_H_
@@ -25,7 +25,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: è·å¾—æ ‡è¯†ID
+		 *	Detail: »ñµÃ±êÊ¶ID
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -34,7 +34,7 @@ namespace SWA
         
 		/*
 		 *
-		 *	Detail: è®¾ç½®å¯åŠ¨å— åœ°å€ä¸ç›‘å¬ç«¯å£
+		 *	Detail: ÉèÖÃÆô¶¯†ëµØÖ·Óë¼àÌı¶Ë¿Ú
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -43,7 +43,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: è®¾ç½®Socketäº‹ä»¶å›è°ƒ
+		 *	Detail: ÉèÖÃSocketÊÂ¼ş»Øµ÷
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -53,7 +53,7 @@ namespace SWA
 
        /*
         *
-        *	Detail: å¯åŠ¨æœåŠ¡
+        *	Detail: Æô¶¯·şÎñ
         *   
         *  Created by hzd 2015/01/23  
         *
@@ -62,7 +62,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: åœæ­¢æœåŠ¡
+		 *	Detail: Í£Ö¹·şÎñ
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -71,7 +71,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: å°†Socketè¿æ¥é‡æ–°æŒ‚èµ·
+		 *	Detail: ½«SocketÁ¬½ÓÖØĞÂ¹ÒÆğ
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -80,7 +80,7 @@ namespace SWA
         
 		/*
 		 *
-		 *	Detail: æ¶ˆæ¯å¤„ç† 
+		 *	Detail: ÏûÏ¢´¦Àí 
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -89,7 +89,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: è·å¾—Socket 
+		 *	Detail: »ñµÃSocket 
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -102,7 +102,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: IOå¾ªç¯å¤„ç† 
+		 *	Detail: IOÑ­»·´¦Àí 
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -111,7 +111,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: å¯¹æ‰€æœ‰å®¢æˆ·ç«¯è¿æ¥äº‹ä»¶ç»‘å®šå¯åŠ¨ 
+		 *	Detail: ¶ÔËùÓĞ¿Í»§¶ËÁ¬½ÓÊÂ¼ş°ó¶¨Æô¶¯ 
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -120,7 +120,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: è¿æ¥å›è°ƒ 
+		 *	Detail: Á¬½Ó»Øµ÷ 
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -129,21 +129,21 @@ namespace SWA
         
 	private:
 		
-		int32			m_nServerID;						// æœåŠ¡å™¨æ ‡è¯†å”¯ä¸€ID 
-        SocketVector    m_vecUsedSocket;					// ä½¿ç”¨ä¸­çš„Socket 
-        SocketVector    m_vecAcceptSocket;					// è¿›å…¥ä¸­çš„Socket 
+		int32			m_nServerID;						// ·şÎñÆ÷±êÊ¶Î¨Ò»ID 
+        SocketVector    m_vecUsedSocket;					// Ê¹ÓÃÖĞµÄSocket 
+        SocketVector    m_vecAcceptSocket;					// ½øÈëÖĞµÄSocket 
 			
-        NetSocket*		m_arrSocket[ MAX_SOCKET_CONNECT ];	// æ‰€æœ‰çš„Scoket 
+        NetSocket*		m_arrSocket[ MAX_SOCKET_CONNECT ];	// ËùÓĞµÄScoket 
         
-        tcp::endpoint   m_cServerAddr;						// æœåŠ¡åœ°å€ç«¯ 
-        tcp::acceptor   m_cAcceptor;						// è¿æ¥ç®¡ç†å™¨ 
+        tcp::endpoint   m_cServerAddr;						// ·şÎñµØÖ·¶Ë 
+        tcp::acceptor   m_cAcceptor;						// Á¬½Ó¹ÜÀíÆ÷ 
 
-		PNetServerHandler		m_pOnEnter;			// è¿æ¥å›è°ƒ 
-		PNetServerHandler		m_pOnExit;			// æ¶ˆæ¯å›è°ƒ 
-		PNetServerMsgHandler	m_pOnMsg;			// æ–­å¼€å›è°ƒ 
+		PNetServerHandler		m_pOnEnter;			// Á¬½Ó»Øµ÷ 
+		PNetServerHandler		m_pOnExit;			// ÏûÏ¢»Øµ÷ 
+		PNetServerMsgHandler	m_pOnMsg;			// ¶Ï¿ª»Øµ÷ 
         
-        thread  m_cServiceThread;					// IOäº‹ä»¶çº¿ç¨‹ 
-        mutex   m_cClientListMutex;					// é” 
+        thread  m_cServiceThread;					// IOÊÂ¼şÏß³Ì 
+        mutex   m_cClientListMutex;					// Ëø 
 
 		friend class NetServerMgr;
         
@@ -155,7 +155,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: åˆ›å»ºä¸€ä¸ªNetServerï¼Œè¿”å›éNULLåˆ™æˆåŠŸ
+		 *	Detail: ´´½¨Ò»¸öNetServer£¬·µ»Ø·ÇNULLÔò³É¹¦
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -164,7 +164,7 @@ namespace SWA
 
 		/*
 		 *
-		 *	Detail: é€šè¿‡serverIDï¼Œå¯è·å¾—NetServerå¯¹è±¡
+		 *	Detail: Í¨¹ıserverID£¬¿É»ñµÃNetServer¶ÔÏó
 		 *   
 		 *  Created by hzd 2015/01/23  
 		 *
@@ -173,7 +173,7 @@ namespace SWA
 
 	private:
 
-		std::vector<NetServer*>	m_vecNetServer;	// æœåŠ¡å™¨çª—å™¨
+		std::vector<NetServer*>	m_vecNetServer;	// ·şÎñÆ÷´°Æ÷
 
 	};
 

@@ -10,7 +10,7 @@ endif ()
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/Shared/Common
-	
+	${PROTOBUL_INCLUDE_DIR}
     ${MYSQL_INCLUDE_DIR}
     ${BOOST_INCLUDE_DIR}
 )
@@ -21,6 +21,7 @@ add_executable(SWA_Server
 
 target_link_libraries(SWA_Server
     Shared
+	LibProtocol
     ${MYSQL_LIBRARIES}
     ${BOOST_LIBRARIES}
 )

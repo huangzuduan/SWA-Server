@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by fox on 12-11-19.
-//  Copyright (c) 2012å¹´ __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012Äê __MyCompanyName__. All rights reserved.
 //
 
 #ifndef SWA_NETIOBUFFER_H_
