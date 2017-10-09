@@ -9,6 +9,7 @@ boost 1.60-x64 http://pan.baidu.com/s/1pL6DheN
 mysql 5.56-x64 http://pan.baidu.com/s/1nu5KZsH
 protobuf 3.3.0 https://pan.baidu.com/s/1mh7AJ7y
 
+也可以下载已经生成好的整包：http://pan.baidu.com/s/1dFtmebf，下载解压后可用
 
 安装步聚：
 从Github下载后，将项目放在E:/SWA_SERVER/目录下
